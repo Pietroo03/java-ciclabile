@@ -8,42 +8,27 @@ import java.util.List;
 public class Interi {
 
     private int[] arrayInteri;
-    private List<Integer> listaNumeri;
-    private Iterator<Integer> iterator;
+    private int count;
 
     public Interi (int[] arrayInteri) {
 
         this.arrayInteri = arrayInteri;
-        this.listaNumeri = new ArrayList<>();
+        this.count = 0;
 
-        for (int numero : arrayInteri) {
-            listaNumeri.add(numero);
-        }
-
-        this.iterator = listaNumeri.iterator();
     }
 
     public int getElementoSuccessivo() {
-        if(hasAncoraElementi()) {
-            return iterator.next();
-        }
-            return -1; 
-        
+        int toReturn = this.arrayInteri[this.count]; 
+        this.count++;
+        return toReturn;
     }
 
     public boolean hasAncoraElementi(){
-        return iterator.hasNext();
-    }
-
-    public static void main(String[] args) {
-
-        int[] arrayInteri = {1, 2, 3, 4, 5, 6};
-        Interi listaInteri = new Interi(arrayInteri);
-
-        while (listaInteri.hasAncoraElementi()) {
-            System.out.println(listaInteri.getElementoSuccessivo());
+        /* if (count < arrayInteri.length) {
+            return true;
         }
-        
+        return false; */
+        return count < arrayInteri.length;
     }
 
 }
